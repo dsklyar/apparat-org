@@ -1,5 +1,6 @@
 import { GlobalStyles } from "apparat-core";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import tw, { styled } from "twin.macro";
 import { useElementSize } from "usehooks-ts";
 import Artifact from "../components/Artifact";
@@ -17,6 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <title>Daniel Sklyar</title>
+      </Head>
       <GlobalStyles />
       <Layout
         sideElement={<Artifact />}

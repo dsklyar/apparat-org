@@ -125,34 +125,34 @@ const SubheaderText = styled.div<{ bold?: boolean; italic?: boolean }>`
   font-style: ${({ italic = false }) => (italic ? "italic" : "normal")};
 `;
 
-const HeadingContent = styled(({ name, title, contact, ...args }) => (
-  <div {...args}>
-    <div>
-      <HeaderText>{name}</HeaderText>
-      <SubheaderText>{title}</SubheaderText>
-    </div>
+// const HeadingContent = styled(({ name, title, contact, ...args }) => (
+//   <div {...args}>
+//     <div>
+//       <HeaderText>{name}</HeaderText>
+//       <SubheaderText>{title}</SubheaderText>
+//     </div>
 
-    <ul>
-      {contact.map(({ content }, i) => (
-        <li key={i}>
-          <DefaultText>{content}</DefaultText>
-        </li>
-      ))}
-    </ul>
-  </div>
-))`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
+//     <ul>
+//       {contact.map(({ content }, i) => (
+//         <li key={i}>
+//           <DefaultText>{content}</DefaultText>
+//         </li>
+//       ))}
+//     </ul>
+//   </div>
+// ))`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: space-between;
+//   height: 100%;
 
-  & > ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-`;
+//   & > ul {
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+//   }
+// `;
 
 const HeadingImage = styled(({ ...args }) => (
   <div {...args}>
@@ -168,13 +168,13 @@ const HeadingImage = styled(({ ...args }) => (
   }
 `;
 
-const Heading = ({ ...props }) => (
-  <GridEntry
-    bordered
-    title={<HeadingImage />}
-    content={<HeadingContent {...props} />}
-  />
-);
+// const Heading = ({ ...props }) => (
+//   <GridEntry
+//     bordered
+//     title={<HeadingImage />}
+//     content={<HeadingContent {...props} />}
+//   />
+// );
 
 const Content = styled.div`
   display: grid;
