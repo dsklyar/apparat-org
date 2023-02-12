@@ -32,7 +32,7 @@ const Info = styled.div`
 
   &.text-animation {
     animation-delay: 1s;
-    animation: text-transition 1s;
+    animation: text-transition 2s;
     animation-fill-mode: forwards;
   }
 
@@ -58,7 +58,7 @@ const Card = styled.div<{ $translate?: number }>`
   ${tw`h-[75%] w-[75%] bg-lighter absolute top-[12.5%] left-[12.5%]`}
   border: 1px solid black;
   transform: ${({ $translate = 0 }) =>
-    `translate(${$translate}rem, ${$translate}rem);`};
+    `translate(${$translate}rem, ${$translate}rem)`};
 `;
 
 const artifacts = [
@@ -72,37 +72,56 @@ const artifacts = [
     key: "bergen",
     low: "/photos/bergen_low.jpg",
     high: "/photos/bergen_high.jpg",
-    content: { title: "Bryggen", description: "Characteristic wooden houses of Bryggen" },
+    content: {
+      title: "Bryggen",
+      description: "Characteristic wooden houses of Bryggen",
+    },
   },
   {
     key: "stavanger",
     low: "/photos/stavanger_low.jpg",
     high: "/photos/stavanger_high.jpg",
-    content: { title: "Stavanger", description: "Graffiti near Stavanger petroleum museum" },
+    content: {
+      title: "Stavanger",
+      description: "Graffiti near Stavanger petroleum museum",
+    },
   },
   {
     key: "pulpit_rock",
     low: "/photos/pulpit_rock_low.jpg",
     high: "/photos/pulpit_rock_high.jpg",
-    content: { title: "Pulpit Rock", description: "Best hike & view of Lysefjord and its surrounding mountains" },
+    content: {
+      title: "Pulpit Rock",
+      description:
+        "Best hike & view of Lysefjord and its surrounding mountains",
+    },
   },
   {
     key: "point_reys",
     low: "/photos/point_reyes_low.jpg",
     high: "/photos/point_reyes_high.jpg",
-    content: { title: "Point Reyes", description: "Drakes Beach and picturesque views" },
+    content: {
+      title: "Point Reyes",
+      description: "Drakes Beach and picturesque views",
+    },
   },
   {
     key: "paris_airport",
     low: "/photos/paris_airport_low.jpg",
     high: "/photos/paris_airport_high.jpg",
-    content: { title: "Airport Layovers", description: "Stuck in Charles de Gaulle airport" },
+    content: {
+      title: "Airport Layovers",
+      description: "Stuck in Charles de Gaulle airport",
+    },
   },
   {
     key: "fjords",
     low: "/photos/fjords_low.jpg",
     high: "/photos/fjords_high.jpg",
-    content: { title: "Norway Fjords", description: "Pit stop alongside the Aurlandsfjord" },
+    content: {
+      title: "Norway Fjords",
+      description: "Pit stop alongside the Aurlandsfjord",
+    },
   },
 ];
 
@@ -149,7 +168,9 @@ export default function Page() {
       </CarouselContainer>
       <Section>
         <Info className={animate ? "text-animation" : "text-hidden"}>
-          <Text uppercase weight={Weight.Bold}>{image.content.title}</Text>
+          <Text uppercase weight={Weight.Bold}>
+            {image.content.title}
+          </Text>
           <Text uppercase>{image.content.description}</Text>
         </Info>
         <Actions>

@@ -20,11 +20,11 @@ const ContentPanel = styled.section<{ $collapsed: boolean }>`
 
 const Content = styled.div<{ $offset: number }>`
   ${tw`overflow-auto w-full h-full`}
-  padding-top: ${({ $offset }) => `${$offset || 0}px`};
-
-  // remove padding for lg: devices
-  @media (max-width: 768px) {
-    padding-top: 0px;
+  // remove padding for small devices
+  padding-top: 0px;
+  
+  @media (min-width: 768px) {
+    padding-top: ${({ $offset }) => `${$offset || 0}px`};
   }
 `;
 

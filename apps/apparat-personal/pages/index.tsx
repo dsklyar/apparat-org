@@ -2,15 +2,15 @@ import tw, { styled, css } from "twin.macro";
 import { Text } from "apparat-core";
 
 const Container = styled.main`
-  ${tw`h-full flex items-center ml-16`}
+  ${tw`flex items-center ml-16 h-full`}
 
   & > div {
-    width: 50%;
+    ${tw`w-full lg:w-2/4`}
   }
 `;
 
 const SlideInText = styled(Text)`
-  animation: 1s text-transition forwards;
+  animation: 2s text-transition forwards;
   opacity: 0;
   transform: translateX(100%);
 
@@ -23,7 +23,7 @@ const SlideInText = styled(Text)`
 `;
 
 const Heading = styled(SlideInText)`
-  ${tw`text-2xl`}
+  ${tw`text-3xl`}
 `
 
 export default function Page() {
