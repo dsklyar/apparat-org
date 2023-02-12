@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Container = styled.header<{ $width: number }>`
-  ${tw`w-full flex justify-between pt-8 pl-8 pr-8 pb-2 fixed bg-white`}
+  ${tw`w-full flex justify-between pt-8 pl-8 pr-8 pb-2 bg-white lg:fixed`}
   width: ${({ $width }) => `${$width || 0}px`}
 `;
 

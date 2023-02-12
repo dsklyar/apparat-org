@@ -87,8 +87,7 @@ const Content = styled.div`
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${tw`flex flex-col lg:w-[8.5in]`}
   /* height: 100vh; */
   /* width: 100vw; */
   /* height: 11in; */

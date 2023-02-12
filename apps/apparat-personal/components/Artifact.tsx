@@ -4,7 +4,7 @@ import tw, { styled } from "twin.macro";
 import useArtifact from "../hooks/useArtifact";
 
 const Container = styled.div`
-  ${tw`w-full h-full relative`}
+  ${tw`w-full h-full relative bg-lighter`}
 `;
 
 const CustomImage = styled(Image)`
@@ -42,7 +42,7 @@ const Transition = styled.div`
   }
 `;
 
-const Square = styled.div`
+const Shape = styled.div`
   ${tw`h-12 w-12 shrink-0`}
   border: 0.5rem solid #ffffff;
 `;
@@ -71,7 +71,11 @@ const artifacts = [
 interface IArtifactProps {}
 
 const Artifact = ({}: IArtifactProps) => {
-  const { image, next, type, onLoadingComplete } = useArtifact(artifacts, { low: 1, high: 10, iterateIndex: true });
+  const { image, next, type, onLoadingComplete } = useArtifact(artifacts, {
+    low: 1,
+    high: 10,
+    iterateIndex: true,
+  });
   const animate = type === "high";
 
   return (
@@ -84,7 +88,7 @@ const Artifact = ({}: IArtifactProps) => {
         onLoadingComplete={() => onLoadingComplete()}
       />
       <Description>
-        <Square />
+        <Shape />
         <Transition className={animate ? "text-animation" : "text-hidden"}>
           <Text uppercase weight={Weight.Bold}>
             {image.content.title}
