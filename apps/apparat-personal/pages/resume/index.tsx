@@ -1,7 +1,8 @@
 import React from "react";
-import tw, { styled  } from "twin.macro";
+import tw, { styled } from "twin.macro";
 import useSWR from "swr";
 import Image from "next/image";
+import { Text } from "apparat-core";
 
 const DefaultText = styled.div<{ bold?: boolean; italic?: boolean }>`
   ${tw`text-dark`}
@@ -200,16 +201,23 @@ const GridEntry = ({
   </>
 );
 
+const Loading = styled.div`
+  ${tw`flex h-full w-full items-center justify-center`}
+`;
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Resume() {
   // There are a lot of underwater stones (unknown unknonws)
   const { data: content, error } = useSWR("/api/resume-content", fetcher);
 
-  if (true) {
-    return <span>Loading</span>;
+  if (!content) {
+    return (
+      <Loading>
+        <Text uppercase>one moment...</Text>
+      </Loading>
+    );
   }
-  console.log(JSON.parse(content))
 
   const { experiences, education, skills } = JSON.parse(content);
   return (
@@ -237,5 +245,4 @@ export default function Resume() {
       </Content>
     </Container>
   );
-};
-
+}
