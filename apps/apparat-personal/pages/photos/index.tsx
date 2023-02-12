@@ -8,7 +8,7 @@ const Container = styled.div`
 `;
 
 const CustomImage = styled(Image)`
-  ${tw`object-cover block`}
+  ${tw`object-cover block select-none`}
   image-rendering: pixelated;
 `;
 
@@ -21,7 +21,7 @@ const Actions = styled.div`
 `;
 
 const ArrowButton = styled(ArrowIcon)<{ $type: "left" | "right" }>`
-  ${tw`cursor-pointer`}
+  ${tw`cursor-pointer select-none`}
   transform: ${({ $type }) =>
     $type === "left" ? "rotate(-90deg)" : "rotate(90deg)"}
 `;
@@ -67,9 +67,12 @@ let artifacts = [
 ];
 
 export default function Page() {
-  const { image, next, prev, type } = useArtifact(artifacts, {
-    iterateIndex: true,
-  });
+  const { image, next, prev, type, onLoadingComplete } = useArtifact(
+    artifacts,
+    {
+      iterateIndex: false,
+    }
+  );
 
   return (
     <Container>
@@ -78,13 +81,12 @@ export default function Page() {
           .filter(({ key }) => key !== image.key)
           .map((artifact, index) => {
             return (
-              <Card $translate={index * 0.5}>
+              <Card $translate={index * 0.5} key={artifact.key}>
                 <CustomImage
                   key={artifact.key}
                   src={artifact.low}
                   alt={artifact.content.description}
                   fill
-                  unoptimized
                 />
               </Card>
             );
@@ -94,8 +96,8 @@ export default function Page() {
             key={image.key}
             src={image[type]}
             alt={image.content.description}
+            onLoadingComplete={() => onLoadingComplete()}
             fill
-            unoptimized
           />
         </Card>
       </CarouselContainer>

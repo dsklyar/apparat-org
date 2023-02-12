@@ -31,33 +31,42 @@ export default function useArtifact(
   const [type, setType] = useState<"low" | "high">("low");
   const timer = useRef<NodeJS.Timer>();
   const buffer = useRef<NodeJS.Timer>();
+  const [loaded, setLoaded] = useState(false);
 
   const next = useCallback(() => {
     setIndex((prev) => (prev === artifacts.length - 1 ? 0 : prev + 1));
     setType("low");
+    setLoaded(false);
   }, [artifacts.length]);
 
   const prev = useCallback(() => {
     setIndex((prev) => (prev === 0 ? artifacts.length - 1 : prev - 1));
     setType("low");
+    setLoaded(false);
   }, [artifacts.length]);
 
+  const onLoadingComplete = () => {
+    setLoaded(true);
+  }
+
   useEffect(() => {
-    if (iterateIndex) {
+    if (iterateIndex && loaded) {
       timer.current = setInterval(() => {
         next();
       }, high * 1000);
     }
 
-    buffer.current = setTimeout(() => {
-      setType("high");
-    }, low * 1000);
+    if (loaded) {
+      buffer.current = setTimeout(() => {
+        setType("high");
+      }, low * 1000);
+    }
 
     return () => {
       timer.current && clearInterval(timer.current);
       buffer.current && clearInterval(buffer.current);
     };
-  }, [next, index, high, low, iterateIndex]);
+  }, [next, index, high, low, iterateIndex, loaded]);
 
   return {
     image: artifacts[index],
@@ -65,5 +74,6 @@ export default function useArtifact(
     type,
     next,
     prev,
+    onLoadingComplete,
   };
 }

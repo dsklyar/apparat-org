@@ -71,7 +71,7 @@ const artifacts = [
 interface IArtifactProps {}
 
 const Artifact = ({}: IArtifactProps) => {
-  const { image, next, type } = useArtifact(artifacts, { low: 1, high: 10 });
+  const { image, next, type, onLoadingComplete } = useArtifact(artifacts, { low: 1, high: 10, iterateIndex: true });
   const animate = type === "high";
 
   return (
@@ -80,8 +80,8 @@ const Artifact = ({}: IArtifactProps) => {
         src={image[type]}
         alt={image.content.description}
         fill
-        unoptimized
         onClick={() => next()}
+        onLoadingComplete={() => onLoadingComplete()}
       />
       <Description>
         <Square />
