@@ -1,11 +1,11 @@
 import tw, { styled, css } from "twin.macro";
-import { Text } from "apparat-core";
+import { Text, Large } from "apparat-core";
 
 const Container = styled.main`
   ${tw`flex items-center ml-16 h-full`}
 
   & > div {
-    ${tw`w-full lg:w-2/4`}
+    ${tw`w-full lg:w-2/6`}
   }
 `;
 
@@ -22,17 +22,13 @@ const SlideInText = styled(Text)`
   }
 `;
 
-const Heading = styled(SlideInText)`
-  ${tw`text-3xl`}
-`
-
 export default function Page() {
   return (
     <Container>
       <div>
-        <Heading>
+        <Large>
           I’m a Front End Developer based in San Francisco
-        </Heading>
+        </Large>
         <br />
         <br />
         <SlideInText>

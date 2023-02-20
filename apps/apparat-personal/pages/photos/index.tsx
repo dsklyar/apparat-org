@@ -1,7 +1,7 @@
 import tw, { styled } from "twin.macro";
 import Image from "next/image";
 import useArtifact from "../../hooks/useArtifact";
-import { ArrowIcon, Text, Weight } from "apparat-core";
+import { ArrowIcon, Text } from "apparat-core";
 
 const Container = styled.div`
   ${tw`h-full w-full p-8`}
@@ -24,7 +24,7 @@ const Actions = styled.div`
 const ArrowButton = styled(ArrowIcon)<{ $type: "left" | "right" }>`
   ${tw`cursor-pointer select-none`}
   transform: ${({ $type }) =>
-    $type === "left" ? "rotate(-90deg)" : "rotate(90deg)"}
+    $type === "left" ? "rotate(-90deg)" : "rotate(90deg)"};
 `;
 
 const Info = styled.div`
@@ -168,7 +168,7 @@ export default function Page() {
       </CarouselContainer>
       <Section>
         <Info className={animate ? "text-animation" : "text-hidden"}>
-          <Text uppercase weight={Weight.Bold}>
+          <Text uppercase className={tw`font-bold`}>
             {image.content.title}
           </Text>
           <Text uppercase>{image.content.description}</Text>

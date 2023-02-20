@@ -1,12 +1,12 @@
 import React, { forwardRef, Ref } from "react";
-import { Tabs, Text, Weight } from "apparat-core";
+import { Tabs, Text } from "apparat-core";
 import tw, { styled } from "twin.macro";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Container = styled.header<{ $width: number }>`
   ${tw`w-full flex justify-between pt-8 pl-8 pr-8 pb-2 bg-white lg:fixed`}
-  width: ${({ $width }) => `${$width || 0}px`}
+  width: ${({ $width }) => `${$width || 0}px`};
 `;
 
 const NameLink = styled(Link)``;
@@ -30,7 +30,7 @@ const Header = forwardRef<HTMLElement, IHeaderProps>(
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Text uppercase weight={Weight.Bold}>
+          <Text uppercase className={tw`font-bold`}>
             Daniel Sklyar
           </Text>
         </NameLink>
