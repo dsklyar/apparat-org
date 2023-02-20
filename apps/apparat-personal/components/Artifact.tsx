@@ -1,4 +1,4 @@
-import { Text, Weight } from "apparat-core";
+import { Text } from "apparat-core";
 import Image from "next/image";
 import tw, { styled } from "twin.macro";
 import useArtifact from "../hooks/useArtifact";
@@ -90,10 +90,10 @@ const Artifact = ({}: IArtifactProps) => {
       <Description>
         <Shape />
         <Transition className={animate ? "text-animation" : "text-hidden"}>
-          <Text uppercase weight={Weight.Bold}>
+          <Text uppercase className={tw`font-bold`}>
             {image.content.title}
           </Text>
-          <Text uppercase weight={Weight.Bold}>
+          <Text uppercase className={tw`font-bold`}>
             {image.content.description}
           </Text>
         </Transition>

@@ -13,6 +13,4 @@ const Template: ComponentStory<typeof Text> = (args) => (
 );
 
 export const Base = Template.bind({});
-Base.args = {
-  uppercase: true,
-};
+Base.args = {};
