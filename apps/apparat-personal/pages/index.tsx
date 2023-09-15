@@ -1,5 +1,5 @@
-import tw, { styled, css } from "twin.macro";
-import { Text, Large } from "apparat-core";
+import tw, { styled } from "twin.macro";
+import { Text } from "apparat-core";
 
 const Container = styled.main`
   ${tw`flex items-center ml-16 h-full`}
@@ -26,9 +26,9 @@ export default function Page() {
   return (
     <Container>
       <div>
-        <Large>
+        <Text size="large">
           I’m a Front End Developer based in San Francisco
-        </Large>
+        </Text>
         <br />
         <br />
         <SlideInText>

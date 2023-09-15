@@ -168,7 +168,7 @@ export default function Page() {
       </CarouselContainer>
       <Section>
         <Info className={animate ? "text-animation" : "text-hidden"}>
-          <Text uppercase className={tw`font-bold`}>
+          <Text uppercase css={tw`font-bold`}>
             {image.content.title}
           </Text>
           <Text uppercase>{image.content.description}</Text>

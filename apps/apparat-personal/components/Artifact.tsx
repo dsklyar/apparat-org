@@ -90,10 +90,10 @@ const Artifact = ({}: IArtifactProps) => {
       <Description>
         <Shape />
         <Transition className={animate ? "text-animation" : "text-hidden"}>
-          <Text uppercase className={tw`font-bold`}>
+          <Text uppercase css={tw`font-bold`}>
             {image.content.title}
           </Text>
-          <Text uppercase className={tw`font-bold`}>
+          <Text uppercase css={tw`font-bold`}>
             {image.content.description}
           </Text>
         </Transition>

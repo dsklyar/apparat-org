@@ -1,55 +1,28 @@
-import { CSSProp } from "styled-components";
 import tw, { styled } from "twin.macro";
 
-const Container = styled.span`
-  ${tw`text-dark text-base`}
-`;
-
-interface ITextProps {
+export const Text = styled.span<{
+  size?: "small" | "s" | "medium" | "m" | "large" | "l" | "jumbo" | "j";
   uppercase?: boolean;
-  className?: CSSProp<any>;
-}
-
-export const Text = ({
-  uppercase = false,
-  children,
-  className,
-}: React.PropsWithChildren<ITextProps>) => {
-  return (
-    <Container css={[uppercase && tw`uppercase`, className]}>
-      {children}
-    </Container>
-  );
-};
-
-export const Jumbo = ({
-  children,
-  className,
-  ...props
-}: React.PropsWithChildren<ITextProps>) => (
-  <Text className={[tw`text-4xl`, className]} {...props}>
-    {children}
-  </Text>
-);
-
-export const Large = ({
-  children,
-  className,
-  ...props
-}: React.PropsWithChildren<ITextProps>) => (
-  <Text className={[tw`text-3xl`, className]} {...props}>
-    {children}
-  </Text>
-);
-
-export const Medium = ({
-  children,
-  className,
-  ...props
-}: React.PropsWithChildren<ITextProps>) => (
-  <Text className={[tw`text-2xl`, className]} {...props}>
-    {children}
-  </Text>
-);
+}>`
+  ${tw`text-default`}
+  ${({ uppercase = false }) => uppercase && tw`uppercase`}
+  ${({ size = "small" }) => {
+    switch (size) {
+      case "m":
+      case "medium":
+        return tw`text-2xl`;
+      case "l":
+      case "large":
+        return tw`text-3xl`;
+      case "j":
+      case "jumbo":
+        return tw`text-4xl`;
+      case "s":
+      case "small":
+      default:
+        return tw`text-base`;
+    }
+  }}
+`;
 
 export default Text;

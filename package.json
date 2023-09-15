@@ -7,15 +7,16 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
+    "build": "dotenv -- turbo run build  --no-daemon",
+    "dev": " dotenv -- turbo run dev  --no-daemon",
+    "lint": "turbo run lint  --no-daemon",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
     "prettier": "latest",
-    "turbo": "latest"
+    "turbo": "latest",
+    "dotenv-cli": "latest"
   },
   "engines": {
     "node": ">=14.0.0"

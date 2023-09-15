@@ -14,7 +14,8 @@ module.exports = {
       light: "#B2BEC3",
       // Platinum
       lighter: "#DFE6E9",
-      white: "#ffffff"
+      white: "#ffffff",
+      default: "#2D3436"
     },
   },
 };

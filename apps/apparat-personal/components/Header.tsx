@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref } from "react";
+import React, { forwardRef } from "react";
 import { Tabs, Text } from "apparat-core";
 import tw, { styled } from "twin.macro";
 import Link from "next/link";
@@ -30,7 +30,7 @@ const Header = forwardRef<HTMLElement, IHeaderProps>(
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Text uppercase className={tw`font-bold`}>
+          <Text uppercase css={tw`font-bold`}>
             Daniel Sklyar
           </Text>
         </NameLink>
