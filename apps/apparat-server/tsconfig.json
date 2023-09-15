@@ -5,6 +5,6 @@
     "esModuleInterop": true,
     "lib": ["ES6"],
     "strict": true,
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
-  "include": ["src/**/*", "types/**/*"]
 }
