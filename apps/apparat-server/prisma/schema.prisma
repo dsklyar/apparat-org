@@ -8,10 +8,38 @@ datasource db {
 }
 
 model User {
+  id         Int      @id @default(autoincrement())
+  email      String   @unique
+  firstName  String
+  lastName   String
+  /// Enum like "PENDING" | "ACTIVE" | "DELETED"
+  status     String   @default("PENDING")
+  /// Enum like "MEMBER" | "ADMIN"
+  role       String   @default("MEMBER")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  // Collection of Albums
+  albums Album[]
+}
+
+model Album {
   id        Int      @id @default(autoincrement())
-  email     String   @unique
-  firstName String
-  lastName  String
+  name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  // Relation to Author
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  // Collection of Photos
+  photos     Photo[]
+}
+
+model Photo {
+  id        Int      @id @default(autoincrement())
+  url       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // Relation to Album
+  album     Album    @relation(fields: [albumId], references: [id])
+  albumId   Int
 }

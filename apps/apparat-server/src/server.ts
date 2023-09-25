@@ -64,7 +64,11 @@ const start = async () => {
 
         if (!foundUser) {
           await prisma.user.create({
-            data: userData,
+            data: {
+              ...userData,
+              role: 'MEMBER',
+              status: 'PENDING'
+            },
           });
         }
 
