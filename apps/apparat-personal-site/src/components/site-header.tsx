@@ -9,8 +9,9 @@ export const SiteHeader = () => {
         "print:hidden",
         "flex gap-6 flex-wrap items-center z-10",
         "fixed",
-        "py-8 px-8 md:px-0",
-        "min-w-full md:min-w-[8.6in] resurgam:min-w-[1024px]",
+        "p-8",
+        "min-w-full md:min-w-[calc(100%-80px)] resurgam:min-w-[1024px]",
+        //"min-w-full md:min-w-[8.6in] resurgam:min-w-[1024px]",
         "border-b border-solid border-[#c4c4c480]",
         "bg-[#0a0a0a]"
       )}

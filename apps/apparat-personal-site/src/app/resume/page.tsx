@@ -205,7 +205,7 @@ const Education = ({ content: education }: ContentData) => (
 const Container = ({ children }: React.PropsWithChildren) => (
   <main
     className={cn(
-      "md:w-[10in] flex flex-column pt-[89px] px-8",
+      "lg:w-[80%] max-w-[10in] flex flex-column pt-[89px] px-8",
       "print:pt-0 print:w-[8.6in]"
     )}
   >
