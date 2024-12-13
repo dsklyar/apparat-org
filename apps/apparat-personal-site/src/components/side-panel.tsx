@@ -1,10 +1,9 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import { cn } from "@/utils";
 import useImages from "@/hooks/use-images";
 import { ImageLoader, Text } from "@/components";
-import { LogoIcon } from "@/assets";
+import LogoIcon from "../assets/logo.svg";
 import { usePathname } from "next/navigation";
 
 const artifacts = [

@@ -1,8 +1,6 @@
 "use client";
 import { ImageLoader, Text } from "@/components";
-import Image from "next/image";
-import { useState } from "react";
-import { ArrowIcon } from "@/assets";
+import ArrowIcon from "../../assets/arrow.svg";
 import useImages from "@/hooks/use-images";
 import { useWindowSize } from "usehooks-ts";
 
