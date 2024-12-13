@@ -23,7 +23,7 @@
       "@styles": ["src/styles"],
     }
   },
-  "include": ["."],
+  "include": [".", "../../apps/apparat-personal-site/src/assets/index.tsx"],
   "exclude": ["dist", "build", "node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

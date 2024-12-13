@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "outDir": "dist",
-    // "rootDir": "src",
-    "esModuleInterop": true,
-    "lib": ["ES6"],
-    "strict": true,
-  },
-}

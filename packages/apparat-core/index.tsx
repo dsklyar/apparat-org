@@ -1,6 +1,6 @@
 export { Button, Text, Tabs } from "./src/components";
 export { GlobalStyles } from "./src/styles";
-export { ArrowIcon } from "./src/assets";
+export { ArrowIcon } from "../../apps/apparat-personal-site/src/assets";
 
 /**
  * TODO:

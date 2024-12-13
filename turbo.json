@@ -1,6 +1,5 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDotEnv": [".env"],
   "globalEnv": [
     "BASE_API_PORT",
     "DATABASE_URL",
@@ -9,7 +8,7 @@
     "APPLICATION_SECRET",
     "APPLICATION_ENV"
   ],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
