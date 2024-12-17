@@ -1,6 +1,6 @@
 "use client";
 import { ImageLoader, Text } from "@/components";
-import ArrowIcon from "../../assets/arrow.svg";
+import ArrowIcon from "@/assets/arrow.svg";
 import useImages from "@/hooks/use-images";
 import { useWindowSize } from "usehooks-ts";
 
@@ -108,18 +108,18 @@ export default function Home() {
 
   return (
     <main className="flex justify-center items-center grow">
-      <div className="grid grid-rows-[640px-1fr] gap-16">
-        <div style={{ width: deriveWidth(), height: deriveHeight() }} className="relative">
-          <ImageLoader
-            image={{
-              ...image,
-              alt: description,
-            }}
-            type={type}
-            onLoad={onLoad}
-            fill
-          />
-        </div>
+      <div className="flex flex-col gap-16">
+        <ImageLoader
+          style={{ width: deriveWidth(), height: deriveHeight() }}
+          className="relative"
+          image={{
+            ...image,
+            alt: description,
+          }}
+          type={type}
+          onLoad={onLoad}
+          fill
+        />
 
         <div className="flex flex-row justify-between">
           <DescriptionContainer>

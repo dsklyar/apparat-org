@@ -13,6 +13,8 @@ interface IImageLoaderProps {
   fill?: boolean;
   onLoad?: () => void;
   next?: () => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export const ImageLoader = ({
@@ -21,11 +23,12 @@ export const ImageLoader = ({
   onLoad,
   next,
   fill = false,
+  className,style,
   ...props
 }: IImageLoaderProps) => {
   const lowResShown = type === "low";
   return (
-    <>
+    <div className={className} style={style}>
       <Image
         {...props}
         src={image.high}
@@ -38,8 +41,8 @@ export const ImageLoader = ({
           lowResShown && "invisible absolute"
         )}
         fill={fill}
-        unoptimized
         unselectable="on"
+        priority
       />
       <Image
         {...props}
@@ -48,7 +51,8 @@ export const ImageLoader = ({
         className={cn("object-cover cursor-fancy", !lowResShown && "hidden absolute")}
         style={{ imageRendering: "pixelated" }}
         fill={fill}
+        priority
       />
-    </>
+    </div>
   );
 };

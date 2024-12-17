@@ -3,8 +3,8 @@
   "title": "Senior Software Engineer",
   "contact": [
     { "type": "email", "content": "cs.daniel.sklyar@gmail.com" },
-    { "type": "linkedin", "content": "linkedin.com/in/danielsklyar" },
-    { "type": "github", "content": "github.com/dsklyar" }
+    { "type": "link", "content": "linkedin.com/in/danielsklyar" },
+    { "type": "link", "content": "github.com/dsklyar" }
   ],
   "skills": [
     "HTML5",

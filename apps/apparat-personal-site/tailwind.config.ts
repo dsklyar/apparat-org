@@ -15,7 +15,8 @@ export default {
         "resurgam": "16in"
       },
       animation: {
-        'fade-in': "fade-in 1s ease-in forwards"
+        'fade-in': "fade-in 1s ease-in forwards",
+        'slide-up': "slide-up 0.85s cubic-bezier(0.65, 0, 0.35, 1) both",
       },
       keyframes: {
         'fade-in': {
@@ -24,6 +25,14 @@ export default {
           },
           to: {
             opacity: '1'
+          }
+        },
+        'slide-up': {
+          '0%': {
+            transform: 'translateY(100px)'
+          },
+          '100%': {
+            transform: 'translateY(0)'
           }
         }
       },

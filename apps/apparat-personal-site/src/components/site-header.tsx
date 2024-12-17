@@ -1,8 +1,11 @@
+"use client";
 import { cn } from "@/utils";
 import { Text } from "./text";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const SiteHeader = () => {
+  const pathname = usePathname();
   return (
     <header
       className={cn(
@@ -17,14 +20,20 @@ export const SiteHeader = () => {
       )}
     >
       <Link
-        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+        className={cn(
+          "flex items-center gap-2 hover:underline hover:underline-offset-4",
+          pathname === "/" && "underline underline-offset-4"
+        )}
         href="/"
         rel="noopener noreferrer"
       >
         <Text.Body uppercase>home</Text.Body>
       </Link>
       <Link
-        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+        className={cn(
+          "flex items-center gap-2 hover:underline hover:underline-offset-4",
+          pathname === "/resume" && "underline underline-offset-4"
+        )}
         href="/resume"
         rel="noopener noreferrer"
       >

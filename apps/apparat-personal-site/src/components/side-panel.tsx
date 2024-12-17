@@ -3,7 +3,7 @@ import React from "react";
 import { cn } from "@/utils";
 import useImages from "@/hooks/use-images";
 import { ImageLoader, Text } from "@/components";
-import LogoIcon from "../assets/logo.svg";
+import LogoIcon from "@/assets/logo.svg";
 import { usePathname } from "next/navigation";
 
 const artifacts = [
@@ -58,7 +58,8 @@ export const SidePanel = () => {
 
 
   return (
-    <div className="hidden resurgam:block sticky resurgam:min-h-screen resurgam:max-h-screen top-0">
+    <div className={cn("hidden resurgam:block sticky resurgam:min-h-screen resurgam:max-h-screen top-0")}>
+    
       <ImageLoader
         image={{
           ...image,

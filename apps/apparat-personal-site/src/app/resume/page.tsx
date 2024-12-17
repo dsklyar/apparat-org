@@ -4,9 +4,12 @@ import Image from "next/image";
 import useSWR from "swr";
 import { Text } from "@/components";
 import { cn } from "@/utils";
+import Link from "next/link";
+import ArrowIcon from "@/assets/arrow.svg";
 
 type ContentData = {
   content: any;
+  type?: any;
 };
 
 type CellProps = {
@@ -34,7 +37,7 @@ type EntryProps = {
   title: React.ReactElement;
   content: React.ReactElement;
   hasBorder?: boolean;
-  className?: string;
+  className?: string | [string, string];
 };
 
 const Entry = ({
@@ -44,10 +47,16 @@ const Entry = ({
   className,
 }: React.PropsWithChildren<EntryProps>) => (
   <>
-    <Cell className={className} hasBorder={hasBorder}>
+    <Cell
+      className={Array.isArray(className) ? className[0] : className}
+      hasBorder={hasBorder}
+    >
       {title}
     </Cell>
-    <Cell className={className} hasBorder={hasBorder}>
+    <Cell
+      className={Array.isArray(className) ? className[1] : className}
+      hasBorder={hasBorder}
+    >
       {content}
     </Cell>
   </>
@@ -98,7 +107,9 @@ const Experience = ({
           />
         )}
         <div>
-          <Text.Body bold>{title}</Text.Body>
+          <Text.Body bold className="block">
+            {title}
+          </Text.Body>
           <Text.Body italic className="text-[#D1D1D1]">
             {company}
           </Text.Body>
@@ -127,13 +138,26 @@ const Experience = ({
   </div>
 );
 
+const genLinkProps = (type: "email" | "link", value: string) => {
+  return {
+    href:
+      type === "email"
+        ? `mailto:${value}`
+        : type === "link"
+          ? `https://${value}`
+          : value,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  };
+};
+
 const Heading = ({ content }: ContentData) => (
   <Grid.Entry
     hasBorder
     // TODO: fix magical numbers
     className="md:sticky top-[89px] bg-[#0a0a0a] md:z-10"
     title={
-      <div className="flex items-center h-full justify-center md:justify-normal">
+      <div className={cn("flex items-center h-full", "justify-normal")}>
         <Image
           className="rounded-full flex items-center"
           src="/images/profile.jpeg"
@@ -141,6 +165,12 @@ const Heading = ({ content }: ContentData) => (
           height={96}
           alt="Profile Image"
         />
+
+        {/* Show Name & title when in tablet mode here, this way the grid stacks */}
+        <div className="md:hidden ml-4">
+          <Text.Header className="block">{content.name}</Text.Header>
+          <Text.Subheader>{content.title}</Text.Subheader>
+        </div>
       </div>
     }
     content={
@@ -151,15 +181,22 @@ const Heading = ({ content }: ContentData) => (
           "items-start md:items-center"
         )}
       >
-        <div>
-          <Text.Header>{content.name}</Text.Header>
+        {/* Hide Name & title when in tablet mode here, this way the grid stacks*/}
+        <div className="hidden md:block">
+          <Text.Header className="block">{content.name}</Text.Header>
           <Text.Subheader>{content.title}</Text.Subheader>
         </div>
 
         <ul className="md:mb-0 mb-4">
-          {content.contact.map(({ content }: ContentData, i: number) => (
-            <li key={i}>
-              <Text.Body>{content}</Text.Body>
+          {content.contact.map(({ content, type }: ContentData, i: number) => (
+            <li key={i} className="flex flex-row items-center">
+              <Link
+                className="items-center gap-2 hover:underline hover:underline-offset-4"
+                {...genLinkProps(type, content)}
+              >
+                {content}
+              </Link>
+              <ArrowIcon className={cn("rotate-45 scale-75 text-sm", "print:hidden")} />
             </li>
           ))}
         </ul>

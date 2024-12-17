@@ -15,9 +15,9 @@ const Body = ({
   className = "",
   children,
 }: React.PropsWithChildren<TextProps>) => (
-  <div
+  <span
     className={cn(
-      "text-white text-sm sm:text-base font-normal font-[family-name:var(--font-geist-mono)]", 
+      "text-white text-sm sm:text-base font-normal", 
       bold && "font-bold",
       italic && "italic",
       uppercase && "uppercase",
@@ -25,7 +25,7 @@ const Body = ({
     )}
   >
     {children}
-  </div>
+  </span>
 );
 
 export const Text = {

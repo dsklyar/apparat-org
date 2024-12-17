@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import { NotebookBinderHoles, SidePanel, SiteHeader } from "@/components";
 import { cn } from "@/utils";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -25,8 +21,9 @@ const Container = ({ children }: React.PropsWithChildren) => (
     className={cn(
       "print:grid-cols-[1fr]",
       "grid grid-cols-[1fr]",
-      "md:grid-cols-[40px_3fr]",
-      "resurgam:grid-cols-[4fr_1fr_8fr]"
+      "md:grid-cols-[4rem_3fr]",
+      "resurgam:grid-cols-[4fr_8rem_8fr]",
+      "font-[family-name:var(--font-geist-mono)]"
     )}
   >
     {children}
@@ -34,7 +31,9 @@ const Container = ({ children }: React.PropsWithChildren) => (
 );
 
 const ContentPanel = ({ children }: React.PropsWithChildren) => (
-  <div className="flex flex-col items-center min-h-screen min-w-[375px]">{children}</div>
+  <div className="flex flex-col items-center min-h-screen min-w-[375px]">
+    {children}
+  </div>
 );
 
 export default function RootLayout({
@@ -45,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistMono.variable} antialiased`}
       >
         <Container>
           <SidePanel />
