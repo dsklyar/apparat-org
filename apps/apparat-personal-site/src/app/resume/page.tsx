@@ -224,7 +224,8 @@ const Experiences = ({ content: experiences }: ContentData) => (
           <Experience
             key={i}
             {...experience}
-            headingClassName="md:sticky bg-[#0a0a0a] z-9 top-[233px] pb-2"
+            //TODO rework mx-[-1px]
+            headingClassName="md:sticky bg-[#0a0a0a] z-9 top-[233px] pb-2 mx-[-1px]"
           />
         ))}
       </>
@@ -242,7 +243,8 @@ const Education = ({ content: education }: ContentData) => (
 const Container = ({ children }: React.PropsWithChildren) => (
   <main
     className={cn(
-      "lg:w-[80%] max-w-[10in] flex flex-column pt-[89px] px-8",
+      // TODO: Remove magical numbers for header
+      "lg:w-[80%] max-w-[10in] flex flex-column pt-[53px] md:pt-[89px] px-8",
       "print:pt-0 print:w-[8.6in]"
     )}
   >

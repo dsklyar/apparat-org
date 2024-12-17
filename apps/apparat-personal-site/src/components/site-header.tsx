@@ -12,8 +12,8 @@ export const SiteHeader = () => {
         "print:hidden",
         "flex gap-6 flex-wrap items-center z-10",
         "fixed",
-        "p-8",
-        "min-w-full md:min-w-[calc(100%-80px)] resurgam:min-w-[1024px]",
+        "p-4 md:p-8",
+        "min-w-full md:min-w-[calc(100%-4rem)] resurgam:min-w-[1024px]",
         "border-b border-solid border-[#c4c4c480]",
         "bg-[#0a0a0a]"
       )}
@@ -40,7 +40,7 @@ export const SiteHeader = () => {
       </Link>
       <Link
         className={cn(
-          "flex items-center gap-2 hover:underline hover:underline-offset-4",
+          "hidden sm:flex items-center gap-2 hover:underline hover:underline-offset-4",
           pathname === "/photos" && "underline underline-offset-4"
         )}
         href="/photos"

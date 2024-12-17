@@ -3,7 +3,7 @@ import { JankyTransitionContainer, Text } from "@/components";
 export default function Home() {
   return (
     <main className="flex justify-center items-center grow px-8">
-      <div className="text-center sm:text-left max-w-2xl">
+      <div className="text-left max-w-2xl">
         <JankyTransitionContainer shouldAnimate type="animate-slide-up">
           <Text.Header className="text-white">
             I am a Front End Developer based in
