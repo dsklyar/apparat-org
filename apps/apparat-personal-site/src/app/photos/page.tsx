@@ -1,5 +1,5 @@
 "use client";
-import { ImageLoader, Text } from "@/components";
+import { ImageLoader, JankyTransitionContainer, Text } from "@/components";
 import ArrowIcon from "@/assets/arrow.svg";
 import useImages from "@/hooks/use-images";
 import { useWindowSize } from "usehooks-ts";
@@ -123,18 +123,21 @@ export default function Home() {
 
         <div className="flex flex-row justify-between">
           <DescriptionContainer>
-            <Text.Subheader uppercase bold className="text-white">
-              {title}
-            </Text.Subheader>
-            <Text.Body uppercase className="text-white mb-4">
-              {description}
-            </Text.Body>
-            {(paragraphs || []).length > 0 &&
-              paragraphs?.map((text, i) => (
-                <Text.Small key={`${i}-ss`} uppercase className="text-white">
-                  {text}
-                </Text.Small>
-              ))}
+            <JankyTransitionContainer key={image.key} shouldAnimate>
+              <Text.Subheader uppercase bold className="text-white">
+                {title}
+              </Text.Subheader>
+
+              <Text.Body uppercase className="text-white mb-4">
+                {description}
+              </Text.Body>
+              {(paragraphs || []).length > 0 &&
+                paragraphs?.map((text, i) => (
+                  <Text.Small key={`${i}-ss`} uppercase className="text-white">
+                    {text}
+                  </Text.Small>
+                ))}
+            </JankyTransitionContainer>
           </DescriptionContainer>
           <div className="flex flex-row items-center gap-16">
             <ArrowIcon

@@ -14,7 +14,6 @@ export const SiteHeader = () => {
         "fixed",
         "p-8",
         "min-w-full md:min-w-[calc(100%-80px)] resurgam:min-w-[1024px]",
-        //"min-w-full md:min-w-[8.6in] resurgam:min-w-[1024px]",
         "border-b border-solid border-[#c4c4c480]",
         "bg-[#0a0a0a]"
       )}
@@ -40,7 +39,10 @@ export const SiteHeader = () => {
         <Text.Body uppercase>resume</Text.Body>
       </Link>
       <Link
-        className="hidden sm:flex items-center gap-2 hover:underline hover:underline-offset-4"
+        className={cn(
+          "flex items-center gap-2 hover:underline hover:underline-offset-4",
+          pathname === "/photos" && "underline underline-offset-4"
+        )}
         href="/photos"
         rel="noopener noreferrer"
       >
