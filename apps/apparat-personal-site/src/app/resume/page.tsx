@@ -129,7 +129,7 @@ const Experience = ({
         <ul className="list-none p-0 m-0">
           {paragraphs.map((paragraph: any, i: number) => (
             <li key={i} className="mb-4">
-              <Text.Body>{paragraph}</Text.Body>
+              <Text.Body insertHTML>{paragraph}</Text.Body>
             </li>
           ))}
         </ul>

@@ -123,7 +123,7 @@ export default function Home() {
 
         <div className="flex flex-row justify-between">
           <DescriptionContainer>
-            <JankyTransitionContainer key={image.key} shouldAnimate>
+            <JankyTransitionContainer key={image.key} shouldAnimate animationClassName="animate-fade-in">
               <Text.Subheader uppercase bold className="text-white">
                 {title}
               </Text.Subheader>
