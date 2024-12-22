@@ -1,9 +1,21 @@
 export const SIDE_PANEL_IMAGES = [
   {
+    key: "image_4",
+    low: "/images/heros/image_4_low.jpg",
+    high: "/images/heros/image_4_high.jpg",
+    content: { title: "San Francisco", description: "Cloudy Days in 2024" },
+  },
+  {
     key: "image_1",
     low: "/images/heros/image_2_low.jpg",
     high: "/images/heros/image_2_high.jpg",
-    content: { title: "China", description: "Yellow mountains" },
+    content: { title: "China", description: "View to Yellow mountains" },
+  },
+  {
+    key: "image_5",
+    low: "/images/heros/image_5_low.jpg",
+    high: "/images/heros/image_5_high.jpg",
+    content: { title: "Norway", description: "Fellow capturing the Fjords" },
   },
   {
     key: "image_2",
@@ -87,6 +99,26 @@ export const PHOTOS_IMAGES = [
     content: {
       title: "Norway Fjords",
       description: "Pit stop alongside the Aurlandsfjord",
+    },
+  },
+  {
+    key: "dune_bug",
+    low: "/images/photos/mexico_bug_low.jpg",
+    high: "/images/photos/mexico_bug_high.jpg",
+    content: {
+      title: "Mexico",
+      description: "Pedal to the floor in dune buggy",
+      paragraphs: ["Fujifilm Fuji Klasse on 400 porta"],
+    },
+  },
+  {
+    key: "marine",
+    low: "/images/photos/marine_low.jpg",
+    high: "/images/photos/marine_high.jpg",
+    content: {
+      title: "Battery Townsley",
+      description: "Trying \"purple\" film on marin headlands hike",
+      paragraphs: ["Fujifilm Fuji Klasse on Lomochrome"],
     },
   },
 ];
