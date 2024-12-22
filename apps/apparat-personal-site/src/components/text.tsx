@@ -17,7 +17,7 @@ const Body = ({
   children,
 }: React.PropsWithChildren<TextProps>) => {
   const composed = cn(
-    "text-white text-sm sm:text-base font-normal",
+    "text-sm sm:text-base",
     bold && "font-bold",
     italic && "italic",
     uppercase && "uppercase",

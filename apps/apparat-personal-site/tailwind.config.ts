@@ -41,9 +41,11 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        accent: "var(--accent)",
+        'accent-green': "var(--accent-green)",
       },
       textShadow: {
-        glow: "0 0 5px #2DD893",
+        glow: "0 0 5px var(--accent-green)",
         none: "none",
       },
     },

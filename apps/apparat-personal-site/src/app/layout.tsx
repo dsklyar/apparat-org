@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import { NotebookBinderHoles, SidePanel, SiteHeader } from "@/components";
 import { cn } from "@/utils";
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  preload: true,
-});
+import { FONTS_INJECT_STRING } from "@/configurations";
 
 export const metadata: Metadata = {
   title: "Daniel Sklyar",
@@ -23,7 +17,8 @@ const Container = ({ children }: React.PropsWithChildren) => (
       "grid grid-cols-[1fr]",
       "md:grid-cols-[4rem_3fr]",
       "resurgam:grid-cols-[4fr_8rem_8fr]",
-      "font-[family-name:var(--font-geist-mono)]"
+      "font-[family-name:var(--font-geist-mono)]",
+      "print:font-[family-name:var(--font-roboto)]"
     )}
   >
     {children}
@@ -44,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistMono.variable} antialiased`}
+        className={FONTS_INJECT_STRING}
       >
         <Container>
           <SidePanel />

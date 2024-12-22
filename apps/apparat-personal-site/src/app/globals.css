@@ -5,13 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --accent: #c4c4c480;
+  --accent-green: #2DD893;
 }
 
 body {
@@ -22,4 +17,18 @@ body {
 
 html {
   scrollbar-gutter: stable;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@media print {
+  :root {
+    --background: #ffffff;
+    --foreground: #4f4f4f;
+  }
 }

@@ -1,5 +1,5 @@
 "use client";
-import React, { Children } from "react";
+import React from "react";
 import Image from "next/image";
 import useSWR from "swr";
 import { Text } from "@/components";
@@ -25,7 +25,9 @@ const Cell = ({
   <div
     className={cn(
       "mb-4 break-before-column",
-      hasBorder && "border-b border-solid border-[#c4c4c480]",
+      // TODO: In print the border for cell is not aligned for the last section
+      "print:mb-0 print:mt-4",
+      hasBorder && "border-b border-solid border-accent",
       className
     )}
   >
@@ -110,15 +112,17 @@ const Experience = ({
           <Text.Body bold className="block">
             {title}
           </Text.Body>
-          <Text.Body italic className="text-[#D1D1D1]">
+          <Text.Body italic className="opacity-80">
             {company}
           </Text.Body>
         </div>
       </div>
       <div className="flex flex-col">
-        <Text.Body className="font-medium mt-4 md:mt-0">{duration}</Text.Body>
+        <Text.Body className="font-medium mt-4 md:mt-0 print:font-semibold">
+          {duration}
+        </Text.Body>
         {durationSub && (
-          <Text.Body italic className="md:self-end">
+          <Text.Body italic className="md:self-end opacity-80">
             {durationSub}
           </Text.Body>
         )}
@@ -154,8 +158,12 @@ const genLinkProps = (type: "email" | "link", value: string) => {
 const Heading = ({ content }: ContentData) => (
   <Grid.Entry
     hasBorder
-    // TODO: fix magical numbers
-    className="md:sticky top-[89px] bg-[#0a0a0a] md:z-10"
+    className={cn(
+      // TODO: fix magical numbers
+      "md:sticky top-[89px] bg-background md:z-10",
+      // Reset sticky and top above for print view
+      "print:relative print:top-0"
+    )}
     title={
       <div className={cn("flex items-center h-full", "justify-normal")}>
         <Image
@@ -169,7 +177,9 @@ const Heading = ({ content }: ContentData) => (
         {/* Show Name & title when in tablet mode here, this way the grid stacks */}
         <div className="md:hidden ml-4">
           <Text.Header className="block">{content.name}</Text.Header>
-          <Text.Subheader>{content.title}</Text.Subheader>
+          <Text.Subheader className="opacity-80">
+            {content.title}
+          </Text.Subheader>
         </div>
       </div>
     }
@@ -184,19 +194,26 @@ const Heading = ({ content }: ContentData) => (
         {/* Hide Name & title when in tablet mode here, this way the grid stacks*/}
         <div className="hidden md:block">
           <Text.Header className="block">{content.name}</Text.Header>
-          <Text.Subheader>{content.title}</Text.Subheader>
+          <Text.Subheader className="opacity-80">
+            {content.title}
+          </Text.Subheader>
         </div>
 
         <ul className="md:mb-0 mb-4">
           {content.contact.map(({ content, type }: ContentData, i: number) => (
             <li key={i} className="flex flex-row items-center">
               <Link
-                className="items-center gap-2 hover:underline hover:underline-offset-4"
+                className={cn(
+                  "items-center gap-2 hover:underline hover:underline-offset-4",
+                  "print:underline print:underline-offset-4"
+                )}
                 {...genLinkProps(type, content)}
               >
-                {content}
+                <Text.Body>{content}</Text.Body>
               </Link>
-              <ArrowIcon className={cn("rotate-45 scale-75 text-sm", "print:hidden")} />
+              <ArrowIcon
+                className={cn("rotate-45 scale-75 text-sm", "print:hidden")}
+              />
             </li>
           ))}
         </ul>
@@ -224,8 +241,12 @@ const Experiences = ({ content: experiences }: ContentData) => (
           <Experience
             key={i}
             {...experience}
-            //TODO rework mx-[-1px]
-            headingClassName="md:sticky bg-[#0a0a0a] z-9 top-[233px] pb-2 mx-[-1px]"
+            //TODO rework mx-[-1px] top-[232px]
+            headingClassName={cn(
+              "md:sticky bg-background z-9 top-[232px] mx-[-1px]",
+              // Reset sticky and top above for print view
+              "print:relative print:top-0"
+            )}
           />
         ))}
       </>
@@ -253,13 +274,17 @@ const Container = ({ children }: React.PropsWithChildren) => (
 );
 
 const Content = ({ children }: React.PropsWithChildren) => (
-  <div className="grid grid-rows-[160px_auto] md:grid-cols-[20%_1fr] grid-cols-[1fr]">
+  <div
+    className={cn(
+      "grid grid-rows-[160px_auto] md:grid-cols-[20%_1fr] grid-cols-[1fr]"
+    )}
+  >
     {children}
   </div>
 );
 
 const Loading = ({ children }: React.PropsWithChildren) => (
-  <div className="flex flex-column items-center justify-center tracking-widest">
+  <div className="flex flex-column items-center justify-center tracking-widest h-full">
     {children}
   </div>
 );
@@ -270,12 +295,9 @@ export default function Resume() {
 
   if (!data) {
     return (
-      <>
-        <br />
-        <Loading>
-          <Text.Body uppercase>one moment...</Text.Body>
-        </Loading>
-      </>
+      <Loading>
+        <Text.Body uppercase>one moment...</Text.Body>
+      </Loading>
     );
   }
 

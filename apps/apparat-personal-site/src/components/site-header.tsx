@@ -14,8 +14,8 @@ export const SiteHeader = () => {
         "fixed",
         "p-4 md:p-8",
         "min-w-full md:min-w-[calc(100%-4rem)] resurgam:min-w-[1024px]",
-        "border-b border-solid border-[#c4c4c480]",
-        "bg-[#0a0a0a]"
+        "border-b border-solid border-accent",
+        "bg-background"
       )}
     >
       <Link
