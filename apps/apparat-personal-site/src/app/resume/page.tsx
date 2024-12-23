@@ -265,8 +265,8 @@ const Container = ({ children }: React.PropsWithChildren) => (
   <main
     className={cn(
       // TODO: Remove magical numbers for header
-      "lg:w-[80%] max-w-[10in] flex flex-column pt-[53px] md:pt-[89px] px-8",
-      "print:pt-0 print:w-[8.6in]"
+      "max-w-[10in] flex flex-column pt-[53px] md:pt-[89px] px-8",
+      "print:pt-0 print:w-[8.6in]",
     )}
   >
     {children}

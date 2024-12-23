@@ -10,10 +10,9 @@ export const SiteHeader = () => {
     <header
       className={cn(
         "print:hidden",
-        "flex gap-6 flex-wrap items-center z-10",
-        "fixed",
+        "flex gap-6 flex-wrap items-center z-20",
+        "fixed w-full resurgam:w-[60vw]",
         "p-4 md:p-8",
-        "min-w-full md:min-w-[calc(100%-4rem)] resurgam:min-w-[1024px]",
         "border-b border-solid border-accent",
         "bg-background"
       )}

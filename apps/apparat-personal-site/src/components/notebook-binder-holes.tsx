@@ -4,11 +4,12 @@ export const NotebookBinderHoles = () => {
   return (
     <div
       className={cn(
+        "min-w-[5vw]",
+        "fixed top-0 left-[35vw]",
         "hidden print:hidden",
         "max-h-screen min-h-screen",
-        "sticky top-0",
         "items-center justify-center",
-        "md:grid grid-rows-[1fr_40px_80px_4fr_80px_40px_1fr]"
+        "resurgam:grid grid-rows-[1fr_40px_80px_4fr_80px_40px_1fr]"
       )}
     >
       <br />

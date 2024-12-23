@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="flex justify-center items-center grow px-8">
       <div className="text-left max-w-2xl">
-        <Text.SupaHeader className=" flex flex-row items-center mb-6">
+        <Text.SupaHeader className="flex flex-row items-center mb-6">
           Hi there
           <Image
             src="/images/gifs/waving-hand.gif"
@@ -36,7 +36,7 @@ export default function Home() {
           shouldAnimate
           animationClassName="animate-[fade-in_3s_ease-out_forwards]"
         >
-          <Text.Subheader className=" mb-4 mt-6">
+          <Text.Subheader className="mb-4 mt-6">
             For the last six years, I have worked on a variety of applications
             focusing on bringing the best user experience and functionality.
           </Text.Subheader>

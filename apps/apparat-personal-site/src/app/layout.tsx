@@ -13,10 +13,6 @@ export const metadata: Metadata = {
 const Container = ({ children }: React.PropsWithChildren) => (
   <div
     className={cn(
-      "print:grid-cols-[1fr]",
-      "grid grid-cols-[1fr]",
-      "md:grid-cols-[4rem_3fr]",
-      "resurgam:grid-cols-[4fr_8rem_8fr]",
       "font-[family-name:var(--font-geist-mono)]",
       "print:font-[family-name:var(--font-roboto)]"
     )}
@@ -26,7 +22,12 @@ const Container = ({ children }: React.PropsWithChildren) => (
 );
 
 const ContentPanel = ({ children }: React.PropsWithChildren) => (
-  <div className="flex flex-col items-center min-h-screen min-w-[375px]">
+  <div
+    className={cn(
+      "min-w-[375px] resurgam:max-w-[60vw] ml-0 resurgam:ml-[40vw]",
+      "flex flex-col items-center min-h-screen",
+    )}
+  >
     {children}
   </div>
 );
@@ -38,9 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={FONTS_INJECT_STRING}
-      >
+      <body className={FONTS_INJECT_STRING}>
         <Container>
           <SidePanel />
           <NotebookBinderHoles />

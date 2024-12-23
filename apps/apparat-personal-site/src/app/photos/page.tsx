@@ -36,7 +36,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex justify-center items-center grow">
+    <main className="flex justify-center items-center grow md:pt-[89px]">
       <div className="flex flex-col gap-16">
         <ImageLoader
           style={{ width: deriveWidth(), height: deriveHeight() }}
@@ -66,9 +66,9 @@ export default function Home() {
               </Text.Body>
               {(paragraphs || []).length > 0 &&
                 paragraphs?.map((text, i) => (
-                  <Text.Small key={`${i}-ss`} uppercase>
+                  <Text.Body key={`${i}-ss`} uppercase>
                     {text}
-                  </Text.Small>
+                  </Text.Body>
                 ))}
             </JankyTransitionContainer>
           </DescriptionContainer>

@@ -38,7 +38,9 @@ export const SidePanel = () => {
   return (
     <div
       className={cn(
-        "hidden resurgam:block sticky resurgam:min-h-screen resurgam:max-h-screen top-0"
+        "min-w-[35vw]",
+        "fixed top-0",
+        "hidden resurgam:block resurgam:min-h-screen resurgam:max-h-screen"
       )}
     >
       <ImageLoader
