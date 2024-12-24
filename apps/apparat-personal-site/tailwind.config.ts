@@ -18,7 +18,8 @@ export default {
       },
       animation: {
         "fade-in": "fade-in 1s ease-in forwards",
-        "slide-up": "slide-up 0.85s cubic-bezier(0.65, 0, 0.35, 1) both",
+        "slide-in-view": "slide-in-view 0.85s cubic-bezier(0.65, 0, 0.35, 1) both",
+        "slide-out-of-view": "slide-out-of-view 0.85s cubic-bezier(0.65, 0, 0.35, 1) both",
       },
       keyframes: {
         "fade-in": {
@@ -29,12 +30,20 @@ export default {
             opacity: "1",
           },
         },
-        "slide-up": {
+        "slide-in-view": {
           "0%": {
-            transform: "translateY(100px)",
+            transform: "translateY(50px)",
           },
           "100%": {
             transform: "translateY(0)",
+          },
+        },
+        "slide-out-of-view": {
+          "0%": {
+            transform: "translateY(0)",
+          },
+          "100%": {
+            transform: "translateY(-50px)",
           },
         },
       },
@@ -42,7 +51,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         accent: "var(--accent)",
-        'accent-green': "var(--accent-green)",
+        "accent-green": "var(--accent-green)",
       },
       textShadow: {
         glow: "0 0 5px var(--accent-green)",
@@ -51,7 +60,7 @@ export default {
     },
   },
   plugins: [
-    /* 
+    /*
      * Example taken from
      * https://www.hyperui.dev/blog/text-shadow-with-tailwindcss
      * https://tailwindcss.com/docs/plugins#adding-utilities

@@ -38,10 +38,9 @@ export const PHOTOS_IMAGES = [
     high: "/images/photos/oslo_high.jpg",
     content: {
       title: "Oslo",
-      description: "Long exposure taken in Oslo",
+      description: "Night time exposure taken in Oslo",
       paragraphs: [
-        "Fuji GSW690 III on 400 porta",
-        "Exposure held for 2 minutes",
+        "Fujifilm GSW690 III [400 Kodak Portra]",
       ],
     },
   },
@@ -80,7 +79,7 @@ export const PHOTOS_IMAGES = [
     content: {
       title: "Point Reyes",
       description: "Drakes Beach and picturesque views",
-      paragraphs: ["Fujifilm Fuji Klasse on 400 porta"],
+      paragraphs: ["Fujifilm Klasse [400 Kodak Portra]"],
     },
   },
   {
@@ -108,7 +107,7 @@ export const PHOTOS_IMAGES = [
     content: {
       title: "Mexico",
       description: "Pedal to the floor in dune buggy",
-      paragraphs: ["Fujifilm Fuji Klasse on 400 porta"],
+      paragraphs: ["Fujifilm Klasse [400 Kodak Portra]"],
     },
   },
   {
@@ -118,7 +117,7 @@ export const PHOTOS_IMAGES = [
     content: {
       title: "Battery Townsley",
       description: "Trying \"purple\" film on marin headlands hike",
-      paragraphs: ["Fujifilm Fuji Klasse on Lomochrome"],
+      paragraphs: ["Fujifilm Klasse [100 Lomochrome Purple]"],
     },
   },
 ];

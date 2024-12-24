@@ -55,7 +55,7 @@ export const SiteHeader = () => {
       >
         <Text.Body uppercase>linkedin →</Text.Body>
       </Link>
-      <Text.Body uppercase className="ml-auto">
+      <Text.Body uppercase className="ml-auto select-none">
         2025
       </Text.Body>
     </header>

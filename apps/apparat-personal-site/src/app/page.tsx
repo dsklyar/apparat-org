@@ -1,4 +1,8 @@
-import { JankyTransitionContainer, Text } from "@/components";
+import {
+  BasedOutOfCityText,
+  JankyTransitionContainer,
+  Text,
+} from "@/components";
 import Image from "next/image";
 
 export default function Home() {
@@ -19,18 +23,12 @@ export default function Home() {
 
         <JankyTransitionContainer
           shouldAnimate
-          animationClassName="animate-slide-up"
+          animationClassName="animate-slide-in-view"
         >
           <Text.Header>I am a Front End Developer based in</Text.Header>
         </JankyTransitionContainer>
 
-        <JankyTransitionContainer
-          shouldAnimate
-          animationClassName="animate-slide-up"
-          scaledDelay={10}
-        >
-          <Text.Header>San Francisco</Text.Header>
-        </JankyTransitionContainer>
+        <BasedOutOfCityText />
 
         <JankyTransitionContainer
           shouldAnimate

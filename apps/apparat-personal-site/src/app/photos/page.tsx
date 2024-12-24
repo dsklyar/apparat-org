@@ -36,13 +36,15 @@ export default function Home() {
 
   return (
     <div
-      className={cn("flex justify-center items-center grow md:pt-[73px] min-w-[640px] w-full")}
+      className={cn(
+        "flex justify-center items-center grow md:pt-[73px] min-w-[640px] w-full"
+      )}
       ref={ref}
     >
       <div className="flex flex-col gap-8">
         <ImageLoader
           style={{ width: deriveWidth(), height: deriveHeight() }}
-          className="relative"
+          className={cn("relative")}
           image={{
             ...image,
             alt: description,
@@ -52,23 +54,31 @@ export default function Home() {
           fill
         />
 
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between relative">
           <DescriptionContainer>
             <JankyTransitionContainer
               key={image.key}
               shouldAnimate
               animationClassName="animate-fade-in"
             >
-              <Text.Subheader uppercase bold>
+              <Text.Header
+                uppercase
+                bold
+                className="absolute top-[-5rem] left-[1rem]"
+              >
                 {title}
-              </Text.Subheader>
+              </Text.Header>
 
               <Text.Body uppercase className="mb-4">
                 {description}
               </Text.Body>
               {(paragraphs || []).length > 0 &&
                 paragraphs?.map((text, i) => (
-                  <Text.Body key={`${i}-ss`} className="text-shadow-glow !text-xs" uppercase>
+                  <Text.Body
+                    key={`${i}-ss`}
+                    className="text-shadow-glow !text-xs"
+                    uppercase
+                  >
                     {text}
                   </Text.Body>
                 ))}
@@ -76,11 +86,11 @@ export default function Home() {
           </DescriptionContainer>
           <div className="flex flex-row items-center gap-16">
             <ArrowIcon
-              className="rotate-[270deg] stroke-white cursor-pointer"
+              className="rotate-[270deg] stroke-white cursor-pointer hover:opacity-80"
               onClick={next}
             />
             <ArrowIcon
-              className="rotate-90 stroke-white cursor-pointer"
+              className="rotate-90 stroke-white cursor-pointer hover:opacity-80"
               onClick={prev}
             />
           </div>

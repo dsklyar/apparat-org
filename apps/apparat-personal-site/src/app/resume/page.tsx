@@ -91,10 +91,11 @@ const Experience = ({
   // TODO: Basically, in print option the space is lost betweend CLoudera and Datacoral experiences so will need to remove margin from list item and add it to the experience div like here with fixed flag
   fixed,
 }: ExperienceProps) => (
-  <div className={fixed ? "mb-4" : ""}>
+  <div className={cn(fixed && "mb-4", "pr-1")}>
     <div
       className={cn(
         "flex flex-col md:flex-row justify-between mb-4",
+        "h-16 print:h-auto",
         headingClassName
       )}
     >
@@ -117,14 +118,16 @@ const Experience = ({
           </Text.Body>
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col justify-center">
         <Text.Body className="font-medium mt-4 md:mt-0 print:font-semibold">
           {duration}
         </Text.Body>
-        {durationSub && (
+        {durationSub ? (
           <Text.Body italic className="md:self-end opacity-80">
             {durationSub}
           </Text.Body>
+        ) : (
+          <br />
         )}
       </div>
     </div>
@@ -241,9 +244,9 @@ const Experiences = ({ content: experiences }: ContentData) => (
           <Experience
             key={i}
             {...experience}
-            //TODO rework mx-[-1px] top-[232px]
+            //TODO rework top-[216px]
             headingClassName={cn(
-              "md:sticky bg-background z-9 top-[216px] mx-[-1px]",
+              "md:sticky bg-background z-9 top-[216px]",
               // Reset sticky and top above for print view
               "print:relative print:top-0"
             )}
@@ -266,7 +269,7 @@ const Container = ({ children }: React.PropsWithChildren) => (
     className={cn(
       // TODO: Remove magical numbers for header
       "max-w-[10in] flex flex-column pt-[53px] md:pt-[73px] px-8",
-      "print:pt-0 print:w-[8.6in]",
+      "print:pt-0 print:w-[8.6in]"
     )}
   >
     {children}
