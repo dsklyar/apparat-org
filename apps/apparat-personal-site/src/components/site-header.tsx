@@ -11,8 +11,8 @@ export const SiteHeader = () => {
       className={cn(
         "print:hidden",
         "flex gap-6 flex-wrap items-center z-20",
-        "fixed w-full resurgam:w-[60vw]",
-        "p-4 md:p-8",
+        "fixed w-full resurgam:w-[65vw]",
+        "p-4 md:p-6",
         "border-b border-solid border-accent",
         "bg-background"
       )}

@@ -22,14 +22,14 @@ const Container = ({ children }: React.PropsWithChildren) => (
 );
 
 const ContentPanel = ({ children }: React.PropsWithChildren) => (
-  <div
+  <main
     className={cn(
-      "min-w-[375px] resurgam:max-w-[60vw] ml-0 resurgam:ml-[40vw]",
+      "min-w-[375px] resurgam:max-w-[65vw] ml-0 resurgam:ml-[35vw]",
       "flex flex-col items-center min-h-screen",
     )}
   >
     {children}
-  </div>
+  </main>
 );
 
 export default function RootLayout({

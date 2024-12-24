@@ -5,7 +5,7 @@ export const NotebookBinderHoles = () => {
     <div
       className={cn(
         "min-w-[5vw]",
-        "fixed top-0 left-[35vw]",
+        "fixed top-0 left-[30vw]",
         "hidden print:hidden",
         "max-h-screen min-h-screen",
         "items-center justify-center",

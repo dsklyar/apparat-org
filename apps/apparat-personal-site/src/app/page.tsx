@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center grow px-8">
+    <div className="flex justify-center items-center grow px-8">
       <div className="text-left max-w-2xl">
         <Text.SupaHeader className="flex flex-row items-center mb-6">
           Hi there
@@ -46,6 +46,6 @@ export default function Home() {
           </Text.Subheader>
         </JankyTransitionContainer>
       </div>
-    </main>
+    </div>
   );
 }
