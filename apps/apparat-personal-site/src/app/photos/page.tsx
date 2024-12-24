@@ -2,8 +2,9 @@
 import { ImageLoader, JankyTransitionContainer, Text } from "@/components";
 import ArrowIcon from "@/assets/arrow.svg";
 import useImages from "@/hooks/use-images";
-import { useWindowSize } from "usehooks-ts";
+import { useElementSize } from "usehooks-ts";
 import { PHOTOS_IMAGES } from "@/configurations";
+import { cn } from "@/utils";
 
 const DescriptionContainer = ({ children }: React.PropsWithChildren) => (
   <div className="flex flex-col z-10 select-none tracking-widest">
@@ -12,7 +13,7 @@ const DescriptionContainer = ({ children }: React.PropsWithChildren) => (
 );
 
 export default function Home() {
-  const { width, height } = useWindowSize();
+  const [ref, { width }] = useElementSize();
   const { image, prev, next, type, onLoad } = useImages(PHOTOS_IMAGES, {
     low: 1,
     high: 20,
@@ -24,20 +25,21 @@ export default function Home() {
   } = image;
 
   const deriveWidth = () => {
-    const ratio = width <= 420 ? 0.9 : width <= 768 ? 0.8 : 0.6;
-    const vW = width * ratio;
+    const vW = width * 0.8;
     return vW > 1024 ? 1024 : vW;
   };
 
   const deriveHeight = () => {
-    const ratio = width <= 420 ? 0.9 : width <= 768 ? 0.8 : 0.6;
-    const vH = height * ratio;
+    const vH = deriveWidth() / (16 / 10);
     return vH > 640 ? 640 : vH;
   };
 
   return (
-    <main className="flex justify-center items-center grow md:pt-[89px]">
-      <div className="flex flex-col gap-16">
+    <div
+      className={cn("flex justify-center items-center grow md:pt-[73px] min-w-[640px] w-full")}
+      ref={ref}
+    >
+      <div className="flex flex-col gap-8">
         <ImageLoader
           style={{ width: deriveWidth(), height: deriveHeight() }}
           className="relative"
@@ -66,7 +68,7 @@ export default function Home() {
               </Text.Body>
               {(paragraphs || []).length > 0 &&
                 paragraphs?.map((text, i) => (
-                  <Text.Body key={`${i}-ss`} uppercase>
+                  <Text.Body key={`${i}-ss`} className="text-shadow-glow !text-xs" uppercase>
                     {text}
                   </Text.Body>
                 ))}
@@ -84,6 +86,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
