@@ -1,12 +1,11 @@
 "use client";
 import { JankyTransitionContainer, Text } from "@/components";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useInterval } from "usehooks-ts";
 
-const abstract = ["Concord", "San Francisco", "Arlington"];
+const abstract = ["in Concord", "in San Francisco", "in Arlington"];
 
 const useCity = () => {
-  const animationActive = useRef<boolean>(false);
   const [index, setIndex] = useState<number>(0);
   const [shownIndex, setShowIndex] = useState<number>(0);
   const [animation, setAnimation] = useState<
@@ -44,12 +43,12 @@ export const BasedOutOfCityText = () => {
   const { copy, animation } = useCity();
 
   return (
-    <JankyTransitionContainer
-      shouldAnimate
-      animationClassName={animation}
-      scaledDelay={10}
-    >
-      <Text.Header>{copy}</Text.Header>
-    </JankyTransitionContainer>
+      <JankyTransitionContainer
+        shouldAnimate
+        animationClassName={animation}
+        scaledDelay={10}
+      >
+        <Text.Header>{copy}</Text.Header>
+      </JankyTransitionContainer>
   );
 };

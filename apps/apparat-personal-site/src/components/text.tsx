@@ -17,7 +17,7 @@ const Body = ({
   children,
 }: React.PropsWithChildren<TextProps>) => {
   const composed = cn(
-    "text-sm md:text-base",
+    "text-sm",
     bold && "font-bold",
     italic && "italic",
     uppercase && "uppercase",
@@ -37,7 +37,7 @@ export const Text = {
     className,
     ...props
   }: React.PropsWithChildren<TextProps>) => (
-    <Body {...props} className={cn("text-2xl md:text-5xl", className)}>
+    <Body {...props} className={cn("text-xl md:text-3xl", className)}>
       {children}
     </Body>
   ),
@@ -46,7 +46,7 @@ export const Text = {
     className,
     ...props
   }: React.PropsWithChildren<TextProps>) => (
-    <Body {...props} className={cn("text-xl md:text-3xl", className)}>
+    <Body {...props} className={cn("text-base md:text-xl", className)}>
       {children}
     </Body>
   ),
@@ -55,7 +55,7 @@ export const Text = {
     className,
     ...props
   }: React.PropsWithChildren<TextProps>) => (
-    <Body {...props} className={cn("text-base md:text-xl", className)}>
+    <Body {...props} className={cn("text-sm md:text-base", className)}>
       {children}
     </Body>
   )

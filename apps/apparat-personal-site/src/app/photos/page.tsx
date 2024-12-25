@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <div
       className={cn(
-        "flex justify-center items-center grow md:pt-[73px] min-w-[640px] w-full"
+        "flex justify-center items-center grow md:pt-[69px] min-w-[640px] w-full"
       )}
       ref={ref}
     >

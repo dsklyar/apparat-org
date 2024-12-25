@@ -4,6 +4,7 @@ type JankyTransitionContainerProps = React.PropsWithChildren<{
   shouldAnimate?: boolean;
   scaledDelay?: number;
   animationClassName?: string;
+  className?: string;
 }>;
 
 export const JankyTransitionContainer = ({
@@ -11,8 +12,9 @@ export const JankyTransitionContainer = ({
   shouldAnimate = false,
   scaledDelay,
   animationClassName,
+  className,
 }: JankyTransitionContainerProps) => (
-  <div className="overflow-hidden">
+  <div className={cn("overflow-hidden", className)}>
     <p
       className={cn(
         "flex flex-col overflow-hidden",

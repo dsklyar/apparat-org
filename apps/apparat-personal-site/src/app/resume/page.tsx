@@ -163,7 +163,7 @@ const Heading = ({ content }: ContentData) => (
     hasBorder
     className={cn(
       // TODO: fix magical numbers
-      "md:sticky top-[73px] bg-background md:z-10",
+      "md:sticky top-[69px] bg-background md:z-10",
       // Reset sticky and top above for print view
       "print:relative print:top-0"
     )}
@@ -244,9 +244,9 @@ const Experiences = ({ content: experiences }: ContentData) => (
           <Experience
             key={i}
             {...experience}
-            //TODO rework top-[216px]
+            //TODO rework top-[212px]
             headingClassName={cn(
-              "md:sticky bg-background z-9 top-[216px]",
+              "md:sticky bg-background z-9 top-[212px]",
               // Reset sticky and top above for print view
               "print:relative print:top-0"
             )}
@@ -268,7 +268,7 @@ const Container = ({ children }: React.PropsWithChildren) => (
   <main
     className={cn(
       // TODO: Remove magical numbers for header
-      "max-w-[10in] flex flex-column pt-[53px] md:pt-[73px] px-8",
+      "max-w-[10in] flex flex-column pt-[53px] md:pt-[69px] px-8",
       "print:pt-0 print:w-[8.6in]"
     )}
   >

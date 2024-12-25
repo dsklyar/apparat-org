@@ -14,7 +14,7 @@ export default {
           "url(data:image/bmp;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQAgMAAABb+qapAAAACVBMVEUAAAAAAAD///+D3c/SAAAAAXRSTlMAQObYZgAAACdJREFUCNdjYAgNYEAnGFctYWBgW7kSQTgwsE0FEauAXCABUYJNLwCKthBFTO0fsgAAAABJRU5ErkJggg==), pointer",
       },
       screens: {
-        resurgam: "16in",
+        resurgam: "12in",
       },
       animation: {
         "fade-in": "fade-in 1s ease-in forwards",
