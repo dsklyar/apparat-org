@@ -10,6 +10,7 @@ import ArrowIcon from "@/assets/arrow.svg";
 type ContentData = {
   content: any;
   type?: any;
+  printContent?: any;
 };
 
 type CellProps = {
@@ -179,7 +180,7 @@ const Heading = ({ content }: ContentData) => (
 
         {/* Show Name & title when in tablet mode here, this way the grid stacks */}
         <div className="md:hidden ml-4">
-          <Text.Header className="block">{content.name}</Text.Header>
+          <Text.Header bold className="block">{content.name}</Text.Header>
           <Text.Subheader className="opacity-80">
             {content.title}
           </Text.Subheader>
@@ -196,23 +197,34 @@ const Heading = ({ content }: ContentData) => (
       >
         {/* Hide Name & title when in tablet mode here, this way the grid stacks*/}
         <div className="hidden md:block">
-          <Text.Header className="block">{content.name}</Text.Header>
+          <Text.Header bold className="block">{content.name}</Text.Header>
           <Text.Subheader className="opacity-80">
             {content.title}
           </Text.Subheader>
         </div>
 
         <ul className="md:mb-0 mb-4">
-          {content.contact.map(({ content, type }: ContentData, i: number) => (
+          {content.contact.map(({ content, type, printContent }: ContentData, i: number) => (
             <li key={i} className="flex flex-row items-center">
               <Link
                 className={cn(
                   "items-center gap-2 hover:underline hover:underline-offset-4",
-                  "print:underline print:underline-offset-4"
+                  "print:underline print:underline-offset-4",
+                  !!printContent && "print:hidden"
                 )}
                 {...genLinkProps(type, content)}
               >
                 <Text.Body>{content}</Text.Body>
+              </Link>
+              {/* If print content is present replace the link above */}
+              <Link
+                className={cn(
+                  "items-center gap-2 hidden",
+                  "print:underline print:underline-offset-4 print:block"
+                )}
+                {...genLinkProps(type, printContent)}
+              >
+                <Text.Body>{printContent}</Text.Body>
               </Link>
               <ArrowIcon
                 className={cn("rotate-45 scale-75 text-sm", "print:hidden")}

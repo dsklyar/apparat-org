@@ -18,6 +18,7 @@ const Body = ({
 }: React.PropsWithChildren<TextProps>) => {
   const composed = cn(
     "text-sm",
+    "print:text-base",
     bold && "font-bold",
     italic && "italic",
     uppercase && "uppercase",

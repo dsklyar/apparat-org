@@ -4,7 +4,11 @@
   "contact": [
     { "type": "email", "content": "cs.daniel.sklyar@gmail.com" },
     { "type": "link", "content": "linkedin.com/in/danielsklyar" },
-    { "type": "link", "content": "github.com/dsklyar" }
+    {
+      "type": "link",
+      "content": "github.com/dsklyar",
+      "printContent": "danielsklyar.io"
+    }
   ],
   "skills": [
     "HTML5",
