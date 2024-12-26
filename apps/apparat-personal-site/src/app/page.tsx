@@ -18,6 +18,7 @@ export default function Home() {
             height={32}
             priority
             className="ml-2 mb-2 sm:w-[40px] sm:h-[40px]"
+            unoptimized
           />
         </Text.SupaHeader>
 
