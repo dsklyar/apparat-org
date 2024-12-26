@@ -69,7 +69,7 @@ export const PHOTOS_IMAGES = [
     content: {
       title: "Pulpit Rock",
       description:
-        "Best hike & view of Lysefjord and its surrounding mountains",
+        "Best hike & view of Lysefjord",
     },
   },
   {

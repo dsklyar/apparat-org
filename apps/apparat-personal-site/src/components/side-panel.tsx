@@ -29,7 +29,7 @@ const TransitionContainer = ({
 
 export const SidePanel = () => {
   const pathname = usePathname();
-  const { image, next, type, onLoad } = useImages(SIDE_PANEL_IMAGES, {
+  const { image, preload, next, type, onLoad } = useImages(SIDE_PANEL_IMAGES, {
     low: 1,
     high: 10,
     iterateIndex: pathname !== "/resume" && pathname !== "/photos",
@@ -44,6 +44,7 @@ export const SidePanel = () => {
       )}
     >
       <ImageLoader
+        preload={preload}
         image={{
           ...image,
           alt: image.content.description,

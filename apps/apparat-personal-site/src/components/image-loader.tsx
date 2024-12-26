@@ -10,6 +10,7 @@ interface IImageLoaderProps {
     low: string;
     alt: string;
   };
+  preload?: string;
   fill?: boolean;
   onLoad?: () => void;
   next?: () => void;
@@ -23,7 +24,9 @@ export const ImageLoader = ({
   onLoad,
   next,
   fill = false,
-  className,style,
+  preload,
+  className,
+  style,
   ...props
 }: IImageLoaderProps) => {
   const lowResShown = type === "low";
@@ -46,9 +49,12 @@ export const ImageLoader = ({
       />
       <Image
         {...props}
-        src={image.low}
+        src={lowResShown ? image.low : (preload ?? image.low)}
         alt={image.alt}
-        className={cn("object-cover cursor-fancy", !lowResShown && "hidden absolute")}
+        className={cn(
+          "object-cover cursor-fancy",
+          !lowResShown && "hidden absolute"
+        )}
         style={{ imageRendering: "pixelated" }}
         fill={fill}
         priority

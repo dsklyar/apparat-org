@@ -69,9 +69,12 @@ const useImages = (
     };
   }, [next, index, high, low, iterateIndex, loaded]);
 
+  const nextIndex = index=== artifacts.length - 1 ? 0 : index + 1 
+
   return {
     image: artifacts[index],
     artifactIndex: index,
+    preload: artifacts[nextIndex].low,
     type,
     next,
     prev,
