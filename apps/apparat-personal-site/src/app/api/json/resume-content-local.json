@@ -1,0 +1,124 @@
+{
+  "name": "Daniel Sklyar",
+  "title": "Senior Software Engineer",
+  "contact": [
+    { "type": "email", "content": "cs.daniel.sklyar@gmail.com" },
+    { "type": "link", "content": "linkedin.com/in/danielsklyar" },
+    { "type": "link", "content": "github.com/dsklyar" }
+  ],
+  "skills": [
+    "HTML5",
+    "CSS3",
+    "TypeScript",
+    "JavaScript",
+    "React.js",
+    "Next.js",
+    "Nest.js",
+    "Redux.js",
+    "GraphQL",
+    "Apollo Client",
+    "Styled-Components",
+    "Tailwind CSS",
+    "Tachyons",
+    "Recharts.js",
+    "D3",
+    "Storybook",
+    "React Query",
+    "React Window",
+    "React Hook Form",
+    "Express",
+    "Nexus",
+    "Prisma",
+    "Urql",
+    "JWT",
+    "I18n",
+    "Jest",
+    "Cypress",
+    "ESLint",
+    "Webpack",
+    "Vite",
+    "Figma",
+    "Jira",
+    "C#",
+    "Java"
+  ],
+  "experiences": [
+    {
+      "title": "Senior Software Engineer",
+      "company": "Walmart Global Tech",
+      "duration": "January 2024 - November 2024",
+      "image": "/images/icons/walmart.png",
+      "paragraphs": [
+        "Contributed to the frontend client of Walmart’s B2B <span class='text-shadow-glow print:text-shadow-none'>Next.js</span> application and the orchestration <span class='text-shadow-glow print:text-shadow-none'>GraphQL</span> layer utilized by the app. Presented upcoming features in engineering forums and assisted in on-call triages",
+        "Collaborated with product, UX, and engineering teams to implement an enterprise intake UI flow. Led discussions to align feature deployment with Walmart’s Merch-Site team. Enhanced post-MVP release by migrating static pages and elements to an internal CMS, facilitating quick updates to the flow's text and image content.",
+        "Led the development of a new B2B direct billing payment method. Extended the existing inherited B2C functionality to support the selection and registration of payment methods in wallet, checkout, and buy-now flows."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Agrippa Inc",
+      "duration": "March 2023 - October 2023",
+      "image": "/images/icons/agrippa.png",
+      "paragraphs": [
+        "Implemented majority of Agrippa’s frontend features including financial model multi-form CRUD flow, user chat service using Sendbird and commercial development marketplace using <span class='text-shadow-glow print:text-shadow-none'>React.js</span>, <span class='text-shadow-glow print:text-shadow-none'>TypeScript</span> and Material UI.",
+        "Implemented client side API request framework using <span class='text-shadow-glow print:text-shadow-none'>TypeScript</span>, which generated helper methods with full type definition for both query and path parameters derived from JSON schema.",
+        "Created configurable form table with capability to derive and update cell values based on user/initial data input, allow user to add/remove rows, input validation, and generation of the static rows e.g. breakdowns/footers. Table was built with Material UI, React-Number-Formatter caret engine and used React-Hook-Form to easily integrate with form submission and initialization."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Cloudera, San Francisco CA",
+      "duration": "June 2021 - December 2022",
+      "image": "/images/icons/cloudera.png",
+      "fixed": true,
+      "paragraphs": [
+        "Worked on the frontend client of Cloudera’s Studio application. Participated in product feature ideation, expanded/mentored Studio’s UI team and collaborated with Cloudera’s engineering teams to deliver results in a fast paced development cycle.",
+        "Proposed then implemented a new frontend client architecture for per and multi tenant Studio’s applications using Vite, <span class='text-shadow-glow print:text-shadow-none'>React.js</span>, React Query, Styled-Components and <span class='text-shadow-glow print:text-shadow-none'>TailwindCSS</span>.",
+        "Authored a frontend library which abstracted JWT authentication, Datacoral’s client business logic such as connector/transformation CRUD and artifact monitoring into services using <span class='text-shadow-glow print:text-shadow-none'>TypeScript</span>. Implemented 90% unit test coverage using <span class='text-shadow-glow print:text-shadow-none'>Jest</span>. Published multiple releases & supporting documentation to Cloudera’s internal package registry.",
+        "Led design and built a multi-tab workspace UI feature, which allowed users to manage multiple artifact types such as connectors, transformations and data preview within the same client. Implemented reusable hook pattern for tab CRUD and built session restore using Ant Design and Context API.",
+        "Significantly contributed to redesign effort of existing Datacoral’s application to match Cloudera's UX design system, rebuilt majority of existing pages/flows using Styled-Components, <span class='text-shadow-glow print:text-shadow-none'>Storybook</span> and <span class='text-shadow-glow print:text-shadow-none'>TailwindCSS</span>."
+      ]
+    },
+    {
+      "title": "Member of Technical Team",
+      "company": "Datacoral, San Francisco CA",
+      "duration": "September 2020 - June 2021",
+      "durationSub": "Acquired by Cloudera",
+      "image": "/images/icons/datacoral.png",
+      "paragraphs": [
+        "Worked on the frontend client of Datacoral’s application. Participated in refactoring efforts of existing <span class='text-shadow-glow print:text-shadow-none'>React.js</span> codebase, wrote integration tests using Cypress and owned responsibility for building major features.",
+        "Created and maintained a reusable components library for designer/engineering staff to improve developing efficiency, component testing and UI/UX documentation using <span class='text-shadow-glow print:text-shadow-none'>Storybook</span>, Tachyons and Semantic UI.",
+        "Built application’s self-serve customer onboarding flow UI incorporating AWS partner solutions, customer and company-hosted options using <span class='text-shadow-glow print:text-shadow-none'>React.js</span> and <span class='text-shadow-glow print:text-shadow-none'>Redux.js</span>.",
+        "Significantly contributed to implementation of application’s add connector flow UI supporting over 10 connector types, OAuth authentication and restoring progress from draft state."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Outward Inc, San Jose CA",
+      "duration": "March 2018 - August 2019",
+      "image": "/images/icons/outward.png",
+      "paragraphs": [
+        "Led migration of Bassett’s furniture 3D visualizer application to utilize <span class='text-shadow-glow print:text-shadow-none'>React.js</span> framework with <span class='text-shadow-glow print:text-shadow-none'>Redux.js</span> for state management using <span class='text-shadow-glow print:text-shadow-none'>TypeScript</span>. Integrated application’s Redux state with Babylon.js WebGL engine rendering pipeline.",
+        "Owned majority responsibility in building Bassett’s Expertsite designer site which integrated with Bassett’s live catalog, CMS and Outward’s visualizing solutions. Presented weekly progress demos to the customer.",
+        "Implemented UI features such as product search and search filters, configuration saving and loading, cross-application navigation menu. Worked directly with the UI/UX team to deliver features on short timelines."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Optiscan Biomedical Corp, Hayward CA",
+      "duration": "June 2015 - January 2018",
+      "image": "/images/icons/optiscan.png",
+      "paragraphs": [
+        "Created a multi-window application for the laboratory to log and maintain a record of blood donors, blood draws and users using Node.js and C#.",
+        "Integrated with in house database/authentication solution to register donors and assign user roles, calculate donor’s next availability to prevent overdraw, edit and update blood draw results, and search and view users/donors based on specific parameters using Node.js.",
+        "Assisted in the database design, the purpose of which was to create an organized and streamlined approach to storing and viewing laboratory records previously held in multiple excel & physical files."
+      ]
+    }
+  ],
+  "education": {
+    "title": "University of California, Merced",
+    "company": "B.S. Computer Science and Engineering",
+    "duration": "September 2013 - December 2017",
+    "image": "/images/icons/ucm.png"
+  }
+}

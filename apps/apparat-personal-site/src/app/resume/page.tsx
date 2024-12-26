@@ -287,16 +287,16 @@ const Content = ({ children }: React.PropsWithChildren) => (
 );
 
 const Loading = ({ children }: React.PropsWithChildren) => (
-  <div className="flex flex-column items-center justify-center tracking-widest h-full">
+  <div className="flex flex-column items-center justify-center tracking-widest h-full min-h-screen">
     {children}
   </div>
 );
 
 export default function Resume() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data } = useSWR("/api/resume", fetcher);
+  const { data, isLoading } = useSWR("/api/resume", fetcher);
 
-  if (!data) {
+  if (isLoading) {
     return (
       <Loading>
         <Text.Body uppercase>one moment...</Text.Body>
