@@ -18,8 +18,13 @@ export default {
       },
       animation: {
         "fade-in": "fade-in 1s ease-in forwards",
-        "slide-in-view": "slide-in-view 0.85s cubic-bezier(0.65, 0, 0.35, 1) both",
-        "slide-out-of-view": "slide-out-of-view 0.85s cubic-bezier(0.65, 0, 0.35, 1) both",
+        "slide-in-view":
+          "slide-in-view 0.85s cubic-bezier(0.65, 0, 0.35, 1) both",
+        "slide-out-of-view":
+          "slide-out-of-view 0.85s cubic-bezier(0.65, 0, 0.35, 1) both",
+      },
+      transitionProperty: {
+        resurgam: "width, left, margin, max-width, min-width, height",
       },
       keyframes: {
         "fade-in": {

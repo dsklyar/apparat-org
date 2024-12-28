@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
-import { NotebookBinderHoles, SidePanel, SiteHeader } from "@/components";
+import {
+  NotebookBinderHoles,
+  SidePanel,
+  SiteHeader,
+  ContentPanel,
+} from "@/components";
 import { cn } from "@/utils";
 import { FONTS_INJECT_STRING } from "@/configurations";
+import { LayoutContextProvider } from "@/contexts";
 
 export const metadata: Metadata = {
   title: "Daniel Sklyar",
@@ -21,17 +27,6 @@ const Container = ({ children }: React.PropsWithChildren) => (
   </div>
 );
 
-const ContentPanel = ({ children }: React.PropsWithChildren) => (
-  <main
-    className={cn(
-      "min-w-[375px] resurgam:max-w-[65vw] ml-0 resurgam:ml-[35vw]",
-      "flex flex-col items-center min-h-screen",
-    )}
-  >
-    {children}
-  </main>
-);
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,14 +35,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={FONTS_INJECT_STRING}>
-        <Container>
-          <SidePanel />
-          <NotebookBinderHoles />
-          <ContentPanel>
-            <SiteHeader />
-            {children}
-          </ContentPanel>
-        </Container>
+        <LayoutContextProvider>
+          <Container>
+            <SidePanel />
+            <NotebookBinderHoles />
+            <ContentPanel>
+              <SiteHeader />
+              {children}
+            </ContentPanel>
+          </Container>
+        </LayoutContextProvider>
       </body>
     </html>
   );

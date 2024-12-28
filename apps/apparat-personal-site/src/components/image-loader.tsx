@@ -13,7 +13,7 @@ interface IImageLoaderProps {
   preload?: string;
   fill?: boolean;
   onLoad?: () => void;
-  next?: () => void;
+  onClick?: () => void;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -22,7 +22,7 @@ export const ImageLoader = ({
   image,
   type,
   onLoad,
-  next,
+  onClick,
   fill = false,
   preload,
   className,
@@ -36,11 +36,11 @@ export const ImageLoader = ({
         {...props}
         src={image.high}
         alt={image.alt}
-        onClick={() => next?.()}
+        onClick={() => onClick?.()}
         onLoad={() => onLoad?.()}
         className={cn(
           "object-cover",
-          !!next && "cursor-pointer",
+          !!onClick && "cursor-pointer",
           lowResShown && "invisible absolute"
         )}
         fill={fill}
