@@ -39,7 +39,7 @@ export const SidePanel = () => {
     if (layoutExpanded) {
       setShowDescription(false);
     } else {
-      timeout = setTimeout(() => setShowDescription(true), 300);
+      timeout = setTimeout(() => setShowDescription(true), 500);
     }
     return () => {
       if (timeout) {

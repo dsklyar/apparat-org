@@ -16,7 +16,7 @@ const DescriptionContainer = ({ children }: React.PropsWithChildren) => (
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { toggleLayoutExpanded, layoutExpanded } = useLayoutContext();
+  const { toggleLayoutExpanded } = useLayoutContext();
   const { width, height } = useResizeObserver({
     ref: containerRef as React.RefObject<HTMLDivElement>,
   });
@@ -30,29 +30,28 @@ export default function Home() {
     content: { description, title, paragraphs },
   } = image;
 
-  const deriveWidth = () => {
-    if (!width) return 640;
-    const vW = width * (layoutExpanded ? 0.9 : 0.7);
-    return vW > 1280 ? 1280 : vW;
+
+  const getWidth = () => {
+    if (!width || !height) return 640;
+    const vW = width * .8;
+    return vW;
   };
 
-  const deriveHeight = () => {
-    const ratio = 16 / 9;
-    if (!height) return 640 / ratio;
-    const vH = deriveWidth() / ratio;
-    return vH > 1080 ? 1080 : vH;
+  const getHeight = () => {
+    const vH = getWidth() / (16 / 10);
+    return vH;
   };
 
   return (
     <div
       className={cn(
-        "flex justify-center items-center grow md:pt-[69px] min-w-[640px] w-full"
+        "flex justify-center items-center grow md:pt-[69px] w-full"
       )}
       ref={containerRef}
     >
       <div className="flex flex-col gap-8">
         <ImageLoader
-          style={{ width: deriveWidth(), height: deriveHeight() }}
+          style={{ width: getWidth(), height: getHeight() }}
           className={cn(
             "relative pointer-events-none resurgam:pointer-events-auto"
           )}
