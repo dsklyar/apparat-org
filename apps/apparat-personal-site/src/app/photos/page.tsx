@@ -5,7 +5,6 @@ import useImages from "@/hooks/use-images";
 import { useResizeObserver, useTimeout } from "usehooks-ts";
 import { PHOTOS_IMAGES } from "@/configurations";
 import { cn } from "@/utils";
-import { useLayoutContext } from "@/contexts";
 import { useRef } from "react";
 
 const DescriptionContainer = ({ children }: React.PropsWithChildren) => (
@@ -16,7 +15,6 @@ const DescriptionContainer = ({ children }: React.PropsWithChildren) => (
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { toggleLayoutExpanded } = useLayoutContext();
   const { width, height } = useResizeObserver({
     ref: containerRef as React.RefObject<HTMLDivElement>,
   });
@@ -30,10 +28,9 @@ export default function Home() {
     content: { description, title, paragraphs },
   } = image;
 
-
   const getWidth = () => {
     if (!width || !height) return 640;
-    const vW = width * .8;
+    const vW = width * 0.7;
     return vW;
   };
 
@@ -55,7 +52,6 @@ export default function Home() {
           className={cn(
             "relative pointer-events-none resurgam:pointer-events-auto"
           )}
-          onClick={toggleLayoutExpanded}
           image={{
             ...image,
             alt: description,
@@ -65,7 +61,7 @@ export default function Home() {
           fill
         />
 
-        <div className="flex flex-row justify-between relative">
+        <div className="flex flex-col lg:flex-row justify-between relative gap-8 lg:gap-0">
           <DescriptionContainer>
             <JankyTransitionContainer
               key={image.key}
