@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { cn } from "@/utils";
 
-interface IImageLoaderProps {
+type ImageLoaderProps = {
   type: "low" | "high";
   image: {
     high: string;
@@ -28,7 +28,7 @@ export const ImageLoader = ({
   className,
   style,
   ...props
-}: IImageLoaderProps) => {
+}: ImageLoaderProps) => {
   const lowResShown = type === "low";
   return (
     <div className={className} style={style}>

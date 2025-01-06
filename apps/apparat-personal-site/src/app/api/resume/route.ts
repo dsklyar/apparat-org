@@ -1,14 +1,12 @@
 import path from "path";
 import { promises as fs } from "fs";
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
+import { getFlag } from "@/utils/flags";
 
 export async function GET() {
   // Can be accessed vias document.cookie='VIEW_LOCAL_RESUME=true'
-  const cookieStore = await cookies();
-  const VIEW_LOCAL_RESUME =
-    cookieStore.get("VIEW_LOCAL_RESUME")?.value === "true";
-  const resume_path = VIEW_LOCAL_RESUME
+  const renderLocalResume = await getFlag("VIEW_LOCAL_RESUME");
+  const resume_path = renderLocalResume
     ? "/resume-content-local.json"
     : "/resume-content.json";
 
